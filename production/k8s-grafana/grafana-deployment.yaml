@@ -34,6 +34,9 @@ spec:
             name: grafana-datasources
             readOnly: false
       volumes:
+        - name: config-volume
+          configMap:
+            name: grafana-config
         - name: grafana-storage
           emptyDir: {}
         - name: grafana-datasources
