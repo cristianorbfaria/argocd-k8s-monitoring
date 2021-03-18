@@ -1,5 +1,3 @@
----
-
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -10,7 +8,7 @@ metadata:
 spec:
   project: Monitoring
   source:
-    repoURL: https://github.com/cristianorbfaria/argocd-k8s-monitoring.git
+    repoURL: git@github.com:cristianorbfaria/argocd-k8s-monitoring
     targetRevision: HEAD
     path: production
   destination:
@@ -24,6 +22,3 @@ spec:
       prune: true
     syncOptions:
     - CreateNamespace=true
-
----
-
