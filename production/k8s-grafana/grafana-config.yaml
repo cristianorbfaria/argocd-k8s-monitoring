@@ -4,7 +4,7 @@ metadata:
   labels:
     app: grafana
   name: grafana-config
-  namespace: projectcontour-monitoring
+  namespace: monitoring
 data:
   grafana.ini: |
     ; instance_name = ${HOSTNAME}
