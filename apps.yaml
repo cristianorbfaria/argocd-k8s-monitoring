@@ -6,16 +6,16 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: Monitoring
+  project: monitoring
   source:
     repoURL: git@github.com:cristianorbfaria/argocd-k8s-monitoring
     targetRevision: HEAD
     path: production
+    directory:
+      recurse: true
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
-    directory:
-      recurse: true
   syncPolicy:
     automated:
       selfHeal: true
