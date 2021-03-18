@@ -1,0 +1,29 @@
+---
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: monitoring
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: Monitoring
+  source:
+    repoURL: https://github.com/cristianorbfaria/argocd-k8s-monitoring.git
+    targetRevision: HEAD
+    path: production
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: monitoring
+    directory:
+      recurse: true
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+    - CreateNamespace=true
+
+---
+
