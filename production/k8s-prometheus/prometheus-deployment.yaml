@@ -21,6 +21,8 @@ spec:
           args:
             - "--config.file=/etc/prometheus/prometheus.yml"
             - "--storage.tsdb.path=/prometheus/"
+            - "--web.external-url=https://infra.noobcloud.com.br/prometheus"
+            - "--web.route-prefix=/prometheus"
           ports:
             - containerPort: 9090
           volumeMounts:
