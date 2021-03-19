@@ -22,7 +22,7 @@ spec:
             - "--config.file=/etc/prometheus/prometheus.yml"
             - "--storage.tsdb.path=/prometheus/"
             - "--web.external-url=http://infra.noobcloud.com.br/prometheus"
-            - "--web.route-prefix=/prometheus"
+            - "--web.route-prefix=prometheus/"
           ports:
             - containerPort: 9090
           volumeMounts:
