@@ -28,6 +28,8 @@ spec:
             memory: "1Gi"
             cpu: "500m"
         volumeMounts:
+          - name: config-volume
+              mountPath: /etc/grafana
           - mountPath: /var/lib/grafana
             name: grafana-storage
           - mountPath: /etc/grafana/provisioning/datasources
