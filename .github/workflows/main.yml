@@ -1,0 +1,42 @@
+name: CI
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+  deploy-dev:
+    runs-on: ubuntu-latest
+    environment:
+      name: hml
+      url: 'noobcloud.com.br'
+    needs: build
+    steps:
+      - name: Run a one-line script
+        run: echo Deploy HML
+
+
+  deploy-hml:
+    runs-on: ubuntu-latest
+    environment:
+      name: hml
+      url: 'noobcloud.com.br'
+    needs: deploy-dev
+    steps:
+      - name: Run a one-line script
+        run: echo Deploy HML
+
+
+  deploy-prd:
+    runs-on: ubuntu-latest
+    environment:
+      name: prd
+      url: 'noobcloud.com.br'
+    needs: deploy-hml
+    steps:
+      - name: Run a one-line script
+        run: echo Deploy PRD
